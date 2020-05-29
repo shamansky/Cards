@@ -1,18 +1,10 @@
 @page
 @{
-    Layout = null;
+    ViewData["Title"] = "NotFound";
 }
 
-<!DOCTYPE html>
+<h2>Your card was not found!</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>NotFound</title>
-</head>
-<body>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
-</body>
-</html>
+<a asp-page="./List" class="btn btn-default">All Cards</a>
+
+

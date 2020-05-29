@@ -1,11 +1,18 @@
-@page
+@page "{cardId}"
 @model Hearthstone.Pages.Cards.DeleteModel
 @{
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+    <h2>Delete!</h2>
+    <div class="alert alert-danger">
+        Are you sure you want to delete @Model.Card.Name?
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Yes!</button>
+        <a asp-page="List" class="btn btn-default">Cancel</a>
+    </form>
+
+
+

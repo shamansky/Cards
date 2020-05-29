@@ -1,19 +1,28 @@
-@page
+@page "{cardId:int}"
+
+
 @model Hearthstone.Pages.Cards.DetailModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Detail";
 }
 
-<!DOCTYPE html>
+<h2>@Model.Card.Name</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Detail</title>
-</head>
-<body>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<div>
+    Id: @Model.Card.Id
+</div>
+
+<div>
+    Cost: @Model.Card.Cost
+</div>
+
+<div>
+    Class: @Model.Card.Class
+</div>
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
 }
-</body>
-</html>
+
+<a asp-page="./List" class="btn btn-primary">See All Cards</a>
