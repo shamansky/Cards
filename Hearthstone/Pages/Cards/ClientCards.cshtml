@@ -1,0 +1,21 @@
+@page
+@model Hearthstone.Pages.Cards.ClientCardsModel
+@{
+    ViewData["Title"] = "ClientCards";
+}
+
+<h2>Client Cards</h2>
+
+
+@section Scripts {
+    <script>
+        $(function () {
+            $.ajax("/api/cards/",
+                { method: "get" })
+                .then(function (response) {
+                   
+                });
+        });
+
+    </script>
+}
