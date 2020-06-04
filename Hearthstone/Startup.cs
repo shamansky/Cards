@@ -35,7 +35,8 @@ namespace Hearthstone
             });
 
 
-            services.AddScoped<ICardData, SqlCardData>();
+            // services.AddScoped<ICardData, SqlCardData>();
+            services.AddScoped<ICardData, InMemoryCardData>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -61,8 +62,11 @@ namespace Hearthstone
                 app.UseHsts();
             }
 
+           // app.Use(SayHelloMiddleware);
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseNodeModules((Microsoft.AspNetCore.Hosting.IHostingEnvironment)env);
             app.UseCookiePolicy();
 
             app.UseRouting();
@@ -72,5 +76,22 @@ namespace Hearthstone
                 e.MapControllers();
             });
         }
+
+        // The following function is an exercise on creating my own delegate
+
+        //private RequestDelegate SayHelloMiddleware(RequestDelegate next)
+        //{
+        //    return async ctx =>
+        //    {
+        //        if (ctx.Request.Path.StartsWithSegments("/hello"))
+        //        {
+        //            await ctx.Response.WriteAsync("Hello World!");
+        //        }
+        //        else
+        //        {
+        //            await next(ctx);
+        //        }
+        //    };
+        //}
     }
 }

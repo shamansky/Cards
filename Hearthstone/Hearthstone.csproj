@@ -3,6 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+    
+    <Target Name="PostBuild" AfterTargets="ComputeFilesToPublish">
+        <Exec Command="npm install"/>
+    </Target>
+    
+    <ItemGroup>
+        <Content Include="node_modules/**" CopyToPublishDirectory="PreserveNewest" />
+    </ItemGroup>
 
 <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
@@ -18,6 +26,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.4" />
+    <PackageReference Include="OdeToCode.UseNodeModules" Version="1.0.6" />
   </ItemGroup>
     
     
@@ -32,5 +41,10 @@
     <Folder Include="Pages\Shared\Components\CardCount\" />
     <Folder Include="Pages\C2\" />
     <Folder Include="Api\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="package.json" />
+    <Content Remove="package-lock.json" />
+    <Content Remove="package.json" />
   </ItemGroup>
 </Project>

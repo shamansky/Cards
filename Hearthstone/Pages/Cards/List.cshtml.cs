@@ -7,6 +7,7 @@ using Hearthstone.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace Hearthstone.Pages.Cards
 {
@@ -16,19 +17,21 @@ namespace Hearthstone.Pages.Cards
         private readonly IConfiguration config;
         private readonly ICardData cardData;
         public IEnumerable<Card> Cards { get; set; }
+        public ILogger<ListModel> logger;
 
         [BindProperty(SupportsGet =true)]
         public string SearchTerm { get; set; }
 
-        public ListModel(IConfiguration config, ICardData cardData)
+        public ListModel(IConfiguration config, ICardData cardData, ILogger<ListModel> logger)
         {
+            this.logger = logger;
             this.config = config;
             this.cardData = cardData;
         }
 
         public void OnGet()
         {
-
+            logger.LogError("Executing Listmodel");
             Message = config["Message"];
             Cards = cardData.GetCardsByName(SearchTerm);
         }

@@ -7,15 +7,42 @@
 <h2>Client Cards</h2>
 
 
+<table class="table" id="cards">
+
+</table>
+
+
 @section Scripts {
-    <script>
-        $(function () {
+    <environment include="Development">
+        <script src="~/node_modules/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="~/node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
+        <link href="~/node_modules/datatables.net-bs/css/dataTables.bootstrap.css" rel="stylesheet" />
+    </environment>
+
+<environment exclude="Development">
+
+</environment>
+
+
+    <script>$(function () {
+    var classes = ["DemonHunter","Druid","Hunter","Mage","Paladin","Priest","Rogue","Shaman","Warlock","Warrior","Neutral"]
+
             $.ajax("/api/cards/",
                 { method: "get" })
                 .then(function (response) {
-                    //console.log(response);
+                    $("#cards").dataTable({
+                        data: response,
+                        columns: [
+                            { "data": "name" },
+                            { "data": "cost" },
+                            {
+                                "data": "class", "render": function (data) {
+                                    return classes[data];
+                                }
+                            }
+                        ]
+                    });
                 });
-        });
-
+            });
     </script>
 }
