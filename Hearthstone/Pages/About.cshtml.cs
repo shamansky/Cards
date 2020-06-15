@@ -12,7 +12,7 @@ namespace Hearthstone.Pages
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            //Message = "Your application description page.";
         }
     }
 }

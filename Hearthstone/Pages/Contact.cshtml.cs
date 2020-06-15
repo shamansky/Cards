@@ -12,7 +12,7 @@ namespace Hearthstone.Pages
 
         public void OnGet()
         {
-            Message = "Your contact page.";
+            //Message = "Welcome to my Contact Page";
         }
     }
 }

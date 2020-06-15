@@ -29,14 +29,14 @@ namespace Hearthstone
         {
             services.AddRazorPages();
             services.AddControllers();
-            services.AddDbContextPool<HearthstoneDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("HearthstoneDb"));
-            });
+            //services.AddDbContextPool<HearthstoneDbContext>(options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("HearthstoneDb"));
+            //});
 
 
-            // services.AddScoped<ICardData, SqlCardData>();
-            services.AddScoped<ICardData, InMemoryCardData>();
+            //services.AddScoped<ICardData, SqlCardData>();
+            services.AddSingleton<ICardData, InMemoryCardData>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
