@@ -17,14 +17,14 @@ namespace Hearthstone.Data
                 new Card { Id = 1, Name = "Tirion Fordring", Cost = 8, Class = ClassType.Paladin},
                 new Card { Id = 2, Name = "Khadgar", Cost = 2, Class = ClassType.Mage},
                 new Card { Id = 3, Name = "Grommash Hellscream", Cost = 8, Class = ClassType.Warrior},
-                new Card { Id = 2, Name = "Pit Commander", Cost = 9, Class = ClassType.DemonHunter},
-                new Card { Id = 2, Name = "Cenarius", Cost = 9, Class = ClassType.Druid},
-                new Card { Id = 2, Name = "Gnomish Inventor", Cost = 4, Class = ClassType.Neutral},
-                new Card { Id = 2, Name = "Catrina Muerte", Cost = 8, Class = ClassType.Priest},
-                new Card { Id = 2, Name = "Edwin VanCleef", Cost = 3, Class = ClassType.Rogue},
-                new Card { Id = 2, Name = "Al'Akir the Windlord", Cost = 8, Class = ClassType.Shaman},
-                new Card { Id = 2, Name = "Lord Jaraxxus", Cost = 9, Class = ClassType.Warlock},
-                new Card { Id = 2, Name = "Savannah Highmane", Cost = 6, Class = ClassType.Hunter},
+                new Card { Id = 4, Name = "Pit Commander", Cost = 9, Class = ClassType.DemonHunter},
+                new Card { Id = 5, Name = "Cenarius", Cost = 9, Class = ClassType.Druid},
+                new Card { Id = 6, Name = "Gnomish Inventor", Cost = 4, Class = ClassType.Neutral},
+                new Card { Id = 7, Name = "Catrina Muerte", Cost = 8, Class = ClassType.Priest},
+                new Card { Id = 8, Name = "Edwin VanCleef", Cost = 3, Class = ClassType.Rogue},
+                new Card { Id = 9, Name = "Al'Akir the Windlord", Cost = 8, Class = ClassType.Shaman},
+                new Card { Id = 10, Name = "Lord Jaraxxus", Cost = 9, Class = ClassType.Warlock},
+                new Card { Id = 11, Name = "Savannah Highmane", Cost = 6, Class = ClassType.Hunter},
             };
         }
 
@@ -72,7 +72,7 @@ namespace Hearthstone.Data
             {
                 cards.Remove(card);
             }
-            return null;
+            return card;
         }
 
         public int GetCountOfCards()
